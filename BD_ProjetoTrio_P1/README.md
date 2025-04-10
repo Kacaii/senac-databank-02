@@ -65,6 +65,106 @@ ao cliente e o registro de vendas.
 Ele ajuda a melhorar a eficiência e a tomada de decisões da loja, garantindo que
 os produtos certos estejam disponíveis para os clientes no momento certo.
 
-## MER
+## MR
 
-![MER](./MER/Minimundo_MER.png)
+```mermaid
+erDiagram
+ Produto }o--|| Fornecedor : references
+ Produto }o--|| Categoria : references
+ Venda ||--|| Forma_Pagamento : references
+ Venda ||--|| Cliente : references
+ Venda ||--|| Funcionario : references
+ Estoque }o--|| Produto : references
+ Item_Venda }o--|| Venda : references
+ Item_Venda }o--|| Promocao : references
+ Item_Venda }o--|| Produto : references
+ Promocao_Produto }o--|| Produto : references
+ Promocao_Produto }o--|| Promocao : references
+
+ Produto {
+  INTEGER id
+  VARCHAR(255) nome
+  VARCHAR(255) descricao
+  REAL preco
+  VARCHAR(255) tamanho
+  VARCHAR(255) cor
+  VARCHAR(255) marca
+  INTEGER id_fornecedor
+  INTEGER id_categoria
+ }
+
+ Fornecedor {
+  INTEGER id
+  VARCHAR(255) nome
+  VARCHAR(255) endereco
+  VARCHAR(255) telefone
+  VARCHAR(255) email
+ }
+
+ Categoria {
+  INTEGER id
+  VARCHAR(255) nome
+ }
+
+ Estoque {
+  INTEGER id
+  INTEGER quantidade
+  DATE data_entrada
+  DATE data_saida
+  INTEGER id_produto
+ }
+
+ Venda {
+  INTEGER id
+  DATE data_venda
+  INTEGER id_cliente
+  INTEGER id_forma_pagamento
+  BOOLEAN status_entrega
+  INTEGER id_funcionario
+ }
+
+ Forma_Pagamento {
+  INTEGER id
+  VARCHAR(255) nome
+ }
+
+ Cliente {
+  INTEGER id
+  VARCHAR(255) nome
+  VARCHAR(255) endereco
+  INTEGER telefone
+  VARCHAR(255) email
+ }
+
+ Funcionario {
+  INTEGER id
+  VARCHAR(255) nome
+  VARCHAR(255) cargo
+  VARCHAR(255) telefone
+ }
+
+ Promocao {
+  INTEGER id
+  VARCHAR(255) nome
+  VARCHAR(255) descricao
+  REAL valor_desconto
+  BOOLEAN ativo
+  DATE data_inicio
+  DATE data_fim
+ }
+
+ Item_Venda {
+  INTEGER id
+  INTEGER id_venda
+  INTEGER id_produto
+  INTEGER quantidade
+  REAL preco_unitario
+  INTEGER id_promocao
+ }
+
+ Promocao_Produto {
+  INTEGER id
+  INTEGER id_produto
+  INTEGER id_promocao
+ }
+```
