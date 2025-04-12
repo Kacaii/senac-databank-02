@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS "Produto" (
     "tamanho" TEXT NOT NULL,
     "cor" TEXT,
     "marca" TEXT,
-    "id_fornecedor" INTEGER,
-    "id_categoria" INTEGER,
+    "id_fornecedor" INTEGER NOT NULL,
+    "id_categoria" INTEGER NOT NULL,
     PRIMARY KEY ("id"),
     FOREIGN KEY ("id_fornecedor") REFERENCES "Fornecedor" ("id")
     ON UPDATE CASCADE ON DELETE SET NULL,
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS "Cliente" (
     "id" INTEGER NOT NULL UNIQUE,
     "nome" TEXT NOT NULL,
     "endereco" TEXT,
-    "telefone" INTEGER UNIQUE,
+    "telefone" TEXT UNIQUE,
     "email" TEXT UNIQUE,
     PRIMARY KEY ("id")
 );
