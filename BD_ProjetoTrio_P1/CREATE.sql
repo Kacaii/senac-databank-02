@@ -1,0 +1,141 @@
+CREATE TABLE `Produto` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`nome` VARCHAR(255) NOT NULL,
+	`descricao` VARCHAR(255),
+	`preco` DECIMAL NOT NULL,
+	`tamanho` VARCHAR(255) NOT NULL,
+	`cor` VARCHAR(255),
+	`marca` VARCHAR(255),
+	`id_fornecedor` INTEGER NOT NULL,
+	`id_categoria` INTEGER NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Item_Venda` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`id_venda` INTEGER NOT NULL,
+	`id_produto` INTEGER NOT NULL,
+	`id_promocao` INTEGER,
+	`preco_unitario` FLOAT NOT NULL,
+	`quantidade` INTEGER NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Promocao` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`nome` VARCHAR(255) NOT NULL,
+	`descricao` VARCHAR(255),
+	`valor_desconto` FLOAT,
+	`ativo` BOOLEAN NOT NULL,
+	`data_inicio` DATE NOT NULL,
+	`data_fim` DATE,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Promocao_Produto` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`id_produto` INTEGER NOT NULL,
+	`id_promocao` INTEGER NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Estoque` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`id_produto` INTEGER NOT NULL,
+	`data_entrada` DATE NOT NULL,
+	`data_saida` DATE,
+	`quantidade` INTEGER NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Fornecedor` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`nome` VARCHAR(255),
+	`endereco` VARCHAR(255) NOT NULL,
+	`telefone` VARCHAR(255),
+	`email` VARCHAR(255),
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Categoria` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`nome` VARCHAR(255) NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Venda` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`id_cliente` INTEGER NOT NULL,
+	`id_funcionario` INTEGER NOT NULL,
+	`id_forma_pagamento` INTEGER NOT NULL,
+	`data_venda` DATE NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Cliente` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`nome` VARCHAR(255) NOT NULL,
+	`endereco` VARCHAR(255),
+	`telefone` VARCHAR(255),
+	`email` VARCHAR(255),
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Forma_Pagamento` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`nome` VARCHAR(255) NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Funcionario` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+	`nome` VARCHAR(255) NOT NULL,
+	`cargo` VARCHAR(255) NOT NULL,
+	`telefone` VARCHAR(255),
+	PRIMARY KEY(`id`)
+);
+
+
+ALTER TABLE `Item_Venda`
+ADD FOREIGN KEY(`id_produto`) REFERENCES `Produto`(`id`)
+ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE `Item_Venda`
+ADD FOREIGN KEY(`id_promocao`) REFERENCES `Promocao`(`id`)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE `Promocao_Produto`
+ADD FOREIGN KEY(`id_produto`) REFERENCES `Produto`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `Promocao_Produto`
+ADD FOREIGN KEY(`id_promocao`) REFERENCES `Promocao`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `Estoque`
+ADD FOREIGN KEY(`id`) REFERENCES `Produto`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `Produto`
+ADD FOREIGN KEY(`id_fornecedor`) REFERENCES `Fornecedor`(`id`)
+ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE `Produto`
+ADD FOREIGN KEY(`id_categoria`) REFERENCES `Categoria`(`id`)
+ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE `Item_Venda`
+ADD FOREIGN KEY(`id_venda`) REFERENCES `Venda`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `Venda`
+ADD FOREIGN KEY(`id_cliente`) REFERENCES `Cliente`(`id`)
+ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE `Venda`
+ADD FOREIGN KEY(`id_forma_pagamento`) REFERENCES `Forma_Pagamento`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `Funcionario`
+ADD FOREIGN KEY(`id`) REFERENCES `Venda`(`id_funcionario`)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
