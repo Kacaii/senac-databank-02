@@ -83,27 +83,27 @@ erDiagram
 
  Produto {
   INTEGER id
-  VARCHAR(255) nome
-  VARCHAR(255) descricao
+  TEXT(65535) nome
+  TEXT(65535) descricao
   REAL preco
-  VARCHAR(255) tamanho
-  VARCHAR(255) cor
-  VARCHAR(255) marca
+  TEXT(65535) tamanho
+  TEXT(65535) cor
+  TEXT(65535) marca
   INTEGER id_fornecedor
   INTEGER id_categoria
  }
 
  Fornecedor {
   INTEGER id
-  VARCHAR(255) nome
-  VARCHAR(255) endereco
-  VARCHAR(255) telefone
-  VARCHAR(255) email
+  TEXT(65535) nome
+  TEXT(65535) endereco
+  TEXT(65535) telefone
+  TEXT(65535) email
  }
 
  Categoria {
   INTEGER id
-  VARCHAR(255) nome
+  TEXT(65535) nome
  }
 
  Estoque {
@@ -119,34 +119,33 @@ erDiagram
   DATE data_venda
   INTEGER id_cliente
   INTEGER id_forma_pagamento
-  BOOLEAN status_entrega
   INTEGER id_funcionario
  }
 
  Forma_Pagamento {
   INTEGER id
-  VARCHAR(255) nome
+  TEXT(65535) nome
  }
 
  Cliente {
   INTEGER id
-  VARCHAR(255) nome
-  VARCHAR(255) endereco
-  INTEGER telefone
-  VARCHAR(255) email
+  TEXT(65535) nome
+  TEXT(65535) endereco
+  TEXT(65535) telefone
+  TEXT(65535) email
  }
 
  Funcionario {
   INTEGER id
-  VARCHAR(255) nome
-  VARCHAR(255) cargo
-  VARCHAR(255) telefone
+  TEXT(65535) nome
+  TEXT(65535) cargo
+  TEXT(65535) telefone
  }
 
  Promocao {
   INTEGER id
-  VARCHAR(255) nome
-  VARCHAR(255) descricao
+  TEXT(65535) nome
+  TEXT(65535) descricao
   REAL valor_desconto
   BOOLEAN ativo
   DATE data_inicio
@@ -167,4 +166,5 @@ erDiagram
   INTEGER id_produto
   INTEGER id_promocao
  }
+
 ```
