@@ -46,7 +46,6 @@ CREATE TABLE IF NOT EXISTS "Venda" (
     "data_venda" DATE NOT NULL,
     "id_cliente" INTEGER NOT NULL,
     "id_forma_pagamento" INTEGER NOT NULL,
-    "status_entrega" BOOLEAN NOT NULL,
     "id_funcionario" INTEGER NOT NULL,
     PRIMARY KEY ("id"),
     FOREIGN KEY ("id_forma_pagamento") REFERENCES "Forma_Pagamento" ("id")
