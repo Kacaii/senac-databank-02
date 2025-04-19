@@ -67,6 +67,8 @@ os produtos certos estejam disponíveis para os clientes no momento certo.
 
 ## MR
 
+[MR](https://www.drawdb.app/editor?shareId=a9c45cac64125718fb8696042fcb4a9c)
+
 ```mermaid
 erDiagram
  Item_Venda }o--|| Produto : references
