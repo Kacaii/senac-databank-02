@@ -75,13 +75,13 @@ erDiagram
  Item_Venda }o--|| Promocao : references
  Promocao_Produto }o--|| Produto : references
  Promocao_Produto }o--|| Promocao : references
- Estoque }o--|| Produto : references
  Produto }o--|| Fornecedor : references
  Produto }o--|| Categoria : references
  Item_Venda }o--|| Venda : references
  Venda }o--|| Cliente : references
  Venda }o--|| Forma_Pagamento : references
- Funcionario ||--|| Venda : references
+ Venda ||--|| Funcionario : references
+ Estoque ||--|| Produto : references
 
  Produto {
   INTEGER id
@@ -100,7 +100,7 @@ erDiagram
   INTEGER id_venda
   INTEGER id_produto
   INTEGER id_promocao
-  FLOAT preco_unitario
+  DECIMAL preco_unitario
   INTEGER quantidade
  }
 
@@ -108,7 +108,7 @@ erDiagram
   INTEGER id
   VARCHAR(255) nome
   VARCHAR(255) descricao
-  FLOAT valor_desconto
+  DECIMAL valor_desconto
   BOOLEAN ativo
   DATE data_inicio
   DATE data_fim
@@ -168,5 +168,4 @@ erDiagram
   VARCHAR(255) cargo
   VARCHAR(255) telefone
  }
-
 ```
