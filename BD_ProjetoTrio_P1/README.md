@@ -1,71 +1,100 @@
 # Loja de Roupas
 
-Uma loja de roupas requer um banco de dados bem projetado para gerenciar eficientemente
-seu estoque, clientes, vendas e fornecedores. Abaixo, descrevemos os principais elementos
-deste minimundo:
+Este banco de dados foi projetado para gerenciar as operações de uma loja de roupas,
+incluindo produtos, vendas, clientes, estoque e promoções.
 
-## Entidades
+## Estrutura do Banco de Dados
+
+O banco de dados Loja_de_Roupas contém as seguintes tabelas:
+Tabelas Principais
+
+### Cadastros
+
+1. Fornecedor
+
+   - Cadastro de fornecedores dos produtos
+
+2. Categoria
+
+   - Categorias de produtos (ex: masculino, feminino, infantil)
+
+3. Cliente
+
+   - Cadastro de clientes da loja
+
+4. Forma_Pagamento
+
+   - Métodos de pagamento aceitos (ex: cartão, dinheiro, pix)
+
+5. Funcionario
+
+   - Cadastro de funcionários da loja
 
 ### Produtos
 
-- A loja possui diversos produtos, que incluem roupas, acessórios e calçados.
-- Cada produto é identificado por um código único e possui informações como
-  nome, descrição, preço, tamanho, cor e marca.
+1. Produto
 
-### Categorias de Produtos
+   - Armazena informações sobre os produtos da loja (nome, descrição, preço,
+     tamanho, cor, marca)
+   - Relacionado com Fornecedor e Categoria
 
-- Os produtos podem ser categorizados em tipos diferentes, como roupas femininas,
-  masculinas, infantis, acessórios, etc.
-- Cada categoria tem um nome e pode conter vários produtos.
+2. Estoque
 
-### Estoque
-
-- O estoque da loja armazena informações sobre a quantidade disponível de cada
-  produto.
-- É importante rastrear a quantidade em estoque, bem como as datas de entrada
-  e saída de produtos.
-
-### Fornecedores
-
-- A loja compra produtos de diversos fornecedores.
-- Cada fornecedor é registrado com informações como nome, endereço, número
-  de telefone e email.
-
-### Clientes
-
-- Os clientes são fundamentais para a loja.
-- Cada cliente possui um perfil com informações pessoais, como nome, endereço,
-  número de telefone e email.
+   - Controla o fluxo de entrada e saída de produtos no estoque
+   - Relacionado com Produto
 
 ### Vendas
 
-- As vendas representam transações de produtos entre a loja e os clientes.
-- Cada venda inclui detalhes como a data da venda, o cliente envolvido e os produtos
-  comprados.
-- É necessário registrar informações sobre descontos, formas de pagamento e
-  status da entrega.
+1. Item_Venda
 
-### Funcionários
+   - Registra os itens individuais de cada venda
+   - Relacionado com Venda, Produto e Promoção
 
-- A loja pode ter funcionários que ajudam na operação diária.
-- Cada funcionário possui informações pessoais, como nome, identificação,
-  cargo e contato.
+2. Venda
 
-### Promoções e Descontos
+   - Contém os dados das transações de venda
+   - Relacionado com Cliente, Funcionário e Forma de Pagamento
 
-- Para atrair clientes, a loja pode realizar promoções e oferecer descontos em
-  produtos específicos ou durante determinados períodos.
+### Promocoes
 
----
+1. Promocao
 
-Este sistema de banco de dados oferece suporte para gerenciar efetivamente todas
-as operações de uma loja de roupas, desde o acompanhamento do estoque até o atendimento
-ao cliente e o registro de vendas.
+   - Armazena informações sobre promoções ativas e históricas
 
-Ele ajuda a melhorar a eficiência e a tomada de decisões da loja, garantindo que
-os produtos certos estejam disponíveis para os clientes no momento certo.
+2. Promocao_Produto
+
+   - Tabela de relacionamento entre produtos e promoções
+
+### Relacionamentos
+
+O banco possui os seguintes relacionamentos principais:
+
+    Produto → Fornecedor (muitos-para-um)
+
+    Produto → Categoria (muitos-para-um)
+
+    Item_Venda → Venda (muitos-para-um)
+
+    Item_Venda → Produto (muitos-para-um)
+
+    Venda → Cliente (muitos-para-um)
+
+    Venda → Funcionário (muitos-para-um)
+
+    Estoque → Produto (muitos-para-um)
+
+Todos os relacionamentos utilizam ON UPDATE CASCADE ON DELETE CASCADE para manter
+a integridade referencial.
+
+## MER
+
+Modelo Entidade Relacionamento
+
+![MER](./MER/MER.excalidraw.png)
 
 ## MR
+
+Modelo Relacional
 
 [MR](https://www.drawdb.app/editor?shareId=a9c45cac64125718fb8696042fcb4a9c)
 
@@ -168,4 +197,5 @@ erDiagram
   VARCHAR(255) cargo
   VARCHAR(255) telefone
  }
+
 ```
