@@ -6,7 +6,6 @@ incluindo produtos, vendas, clientes, estoque e promoções.
 ## Estrutura do Banco de Dados
 
 O banco de dados Loja_de_Roupas contém as seguintes tabelas:
-Tabelas Principais
 
 ### Cadastros
 
