@@ -4,110 +4,110 @@ USE `Loja_de_Roupas`;
 START TRANSACTION;
 
 CREATE TABLE IF NOT EXISTS `Produto` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`nome` VARCHAR(255) NOT NULL,
-	`descricao` VARCHAR(255),
-	`preco` DECIMAL(10,2) NOT NULL,
-	`tamanho` VARCHAR(255) NOT NULL,
-	`cor` VARCHAR(255),
-	`marca` VARCHAR(255),
-	`id_fornecedor` INTEGER NOT NULL,
-	`id_categoria` INTEGER NOT NULL,
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `nome` VARCHAR(255) NOT NULL,
+  `descricao` VARCHAR(255),
+  `preco` DECIMAL(10,2) NOT NULL,
+  `tamanho` VARCHAR(255) NOT NULL,
+  `cor` VARCHAR(255),
+  `marca` VARCHAR(255),
+  `id_fornecedor` INTEGER NOT NULL,
+  `id_categoria` INTEGER NOT NULL,
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Item_Venda` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`id_venda` INTEGER NOT NULL,
-	`id_produto` INTEGER NOT NULL,
-	`id_promocao` INTEGER,
-	`preco_unitario` DECIMAL(10,2) NOT NULL,
-	`quantidade` INTEGER NOT NULL,
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `id_venda` INTEGER NOT NULL,
+  `id_produto` INTEGER NOT NULL,
+  `id_promocao` INTEGER,
+  `preco_unitario` DECIMAL(10,2) NOT NULL,
+  `quantidade` INTEGER NOT NULL,
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Promocao` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`nome` VARCHAR(255) NOT NULL,
-	`descricao` VARCHAR(255),
-	`valor_desconto` DECIMAL(10,2),
-	`ativo` BOOLEAN NOT NULL,
-	`data_inicio` DATE NOT NULL,
-	`data_fim` DATE,
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `nome` VARCHAR(255) NOT NULL,
+  `descricao` VARCHAR(255),
+  `valor_desconto` DECIMAL(10,2),
+  `ativo` BOOLEAN NOT NULL,
+  `data_inicio` DATE NOT NULL,
+  `data_fim` DATE,
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Promocao_Produto` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`id_produto` INTEGER NOT NULL,
-	`id_promocao` INTEGER NOT NULL,
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `id_produto` INTEGER NOT NULL,
+  `id_promocao` INTEGER NOT NULL,
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Estoque` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`id_produto` INTEGER NOT NULL,
-	`data_entrada` DATE NOT NULL,
-	`data_saida` DATE,
-	`quantidade` INTEGER NOT NULL,
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `id_produto` INTEGER NOT NULL,
+  `data_entrada` DATE NOT NULL,
+  `data_saida` DATE,
+  `quantidade` INTEGER NOT NULL,
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Fornecedor` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`nome` VARCHAR(255) NOT NULL,
-	`endereco` VARCHAR(255) NOT NULL,
-	`telefone` VARCHAR(255),
-	`email` VARCHAR(255),
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `nome` VARCHAR(255) NOT NULL,
+  `endereco` VARCHAR(255) NOT NULL,
+  `telefone` VARCHAR(255),
+  `email` VARCHAR(255),
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Categoria` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`nome` VARCHAR(255) NOT NULL,
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `nome` VARCHAR(255) NOT NULL,
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Venda` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`id_cliente` INTEGER NOT NULL,
-	`id_funcionario` INTEGER NOT NULL,
-	`id_forma_pagamento` INTEGER NOT NULL,
-	`data_venda` DATE NOT NULL,
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `id_cliente` INTEGER NOT NULL,
+  `id_funcionario` INTEGER NOT NULL,
+  `id_forma_pagamento` INTEGER NOT NULL,
+  `data_venda` DATE NOT NULL,
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Cliente` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`nome` VARCHAR(255) NOT NULL,
-	`endereco` VARCHAR(255),
-	`telefone` VARCHAR(255),
-	`email` VARCHAR(255),
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `nome` VARCHAR(255) NOT NULL,
+  `endereco` VARCHAR(255),
+  `telefone` VARCHAR(255),
+  `email` VARCHAR(255),
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Forma_Pagamento` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`nome` VARCHAR(255) NOT NULL,
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `nome` VARCHAR(255) NOT NULL,
+  PRIMARY KEY(`id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Funcionario` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`nome` VARCHAR(255) NOT NULL,
-	`cargo` VARCHAR(255) NOT NULL,
-	`telefone` VARCHAR(255),
-	PRIMARY KEY(`id`)
+  `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+  `nome` VARCHAR(255) NOT NULL,
+  `cargo` VARCHAR(255) NOT NULL,
+  `telefone` VARCHAR(255),
+  PRIMARY KEY(`id`)
 );
 
 
