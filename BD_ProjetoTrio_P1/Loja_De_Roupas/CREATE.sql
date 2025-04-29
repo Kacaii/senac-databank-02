@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS `Loja_de_Roupas`;
-USE `Loja_de_Roupas`;
+CREATE SCHEMA IF NOT EXISTS `loja_de_roupas`;
+USE `loja_de_roupas`;
 
 START TRANSACTION;
 
