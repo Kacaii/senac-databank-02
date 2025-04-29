@@ -1,4 +1,4 @@
-USE `Loja_de_Roupas`;
+USE `loja_de_roupas`;
 
 START TRANSACTION;
 
