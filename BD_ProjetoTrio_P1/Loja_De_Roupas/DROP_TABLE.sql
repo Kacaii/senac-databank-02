@@ -15,3 +15,19 @@ DROP TABLE IF EXISTS CLIENTE;
 DROP TABLE IF EXISTS FUNCIONARIO;
 
 COMMIT;
+
+START TRANSACTION;
+
+-- Lista de todas as views a serem removidas
+DROP VIEW IF EXISTS vw_estoque_baixo;
+DROP VIEW IF EXISTS vw_vendas_por_cliente;
+DROP VIEW IF EXISTS vw_produtos_mais_vendidos;
+DROP VIEW IF EXISTS vw_vendas_por_funcionario;
+DROP VIEW IF EXISTS vw_produtos_em_promocao;
+DROP VIEW IF EXISTS vw_faturamento_mensal;
+DROP VIEW IF EXISTS vw_fornecedores_produtos;
+DROP VIEW IF EXISTS vw_metodos_pagamento_utilizados;
+DROP VIEW IF EXISTS vw_categorias_faturamento;
+DROP VIEW IF EXISTS vw_historico_vendas_detalhado;
+
+COMMIT;
