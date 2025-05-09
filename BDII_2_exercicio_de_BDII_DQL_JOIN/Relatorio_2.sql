@@ -4,9 +4,9 @@ select
     e.nome as nome_empregado,
     e.cpf as cpf_empregado,
     e.dataadm as data_admissao,
-    e.salario,
     d.nome as departamento,
-    t.numero as numero_de_telefone
+    t.numero as numero_de_telefone,
+    CONCAT('R$ ', ROUND(e.salario, 2)) as salario
 from
     empregado as e
 left join
