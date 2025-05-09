@@ -6,7 +6,7 @@ select
     e.dataadm as data_admissao,
     d.nome as departamento,
     t.numero as numero_de_telefone,
-    CONCAT('R$ ', ROUND(e.salario, 2)) as salario
+    concat('R$ ', round(e.salario, 2)) as salario
 from
     empregado as e
 left join
@@ -16,5 +16,5 @@ left join
     telefone as t
     on e.cpf = t.empregado_cpf
 where
-    e.salario <= (select AVG(empregado.salario) from empregado)
+    e.salario <= (select avg(empregado.salario) from empregado)
 order by e.nome asc;
