@@ -1,19 +1,20 @@
 use petshop;
 
 select
-    empregado.nome as nome_empregado,
-    empregado.cpf as cpf_empregado,
-    empregado.dataadm as data_admissao,
-    empregado.salario,
-    departamento.nome as departamento,
-    telefone.numero as numero_de_telefone
+    e.nome as nome_empregado,
+    e.cpf as cpf_empregado,
+    e.dataadm as data_admissao,
+    e.salario,
+    d.nome as departamento,
+    t.numero as numero_de_telefone
 from
-    empregado
+    empregado as e
 left join
-    departamento
-    on empregado.departamento_iddepartamento = departamento.iddepartamento
+    departamento as d
+    on e.departamento_iddepartamento = d.iddepartamento
 left join
-    telefone on empregado.cpf = telefone.empregado_cpf
+    telefone as t
+    on e.cpf = t.empregado_cpf
 where
-    empregado.dataadm between '2019-01-01' and '2022-03-31'
-order by empregado.dataadm desc;
+    e.dataadm between '2019-01-01' and '2022-03-31'
+order by e.dataadm desc;
