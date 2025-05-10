@@ -6,7 +6,6 @@ select
     case
         when e.sexo = 'F' then 'Feminino'
         when e.sexo = 'M' then 'Masculino'
-        else 'Não-Binário'
     end as 'genero',
     concat('R$ ', round(e.salario, 2)) as salario,
     count(i.empregado_cpf) as vendas_servico_realizadas,
