@@ -3,7 +3,11 @@ use petshop;
 select
     e.nome,
     e.cpf,
-    e.sexo,
+    case
+        when e.sexo = 'F' then 'Feminino'
+        when e.sexo = 'M' then 'Masculino'
+        else 'Não-Binário'
+    end as 'genero',
     concat('R$ ', round(e.salario, 2)) as salario,
     count(i.empregado_cpf) as vendas_servico_realizadas,
     concat(
