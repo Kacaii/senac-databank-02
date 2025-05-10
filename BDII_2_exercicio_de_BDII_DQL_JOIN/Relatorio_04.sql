@@ -3,15 +3,16 @@ use petshop;
 select
     e.nome,
     e.cpf,
-    e.sexo,
+    case
+        when e.sexo = 'F' then 'Feminino'
+        when e.sexo = 'M' then 'Masculino'
+        else 'Não-Binário'
+    end as 'genero',
     concat('R$ ', round(e.salario, 2)) as salario,
     count(v.empregado_cpf) as vendas_realizadas,
     concat(
         'R$ ',
-        coalesce(
-            sum((v.valor - v.desconto)),
-            0
-        )
+        coalesce(sum((v.valor - v.desconto)), 0)
     ) as valor_total_vendas,
     concat('R$ ', sum(e.comissao)) as total_comissao
 from
