@@ -1,5 +1,5 @@
 [sqlfluff]
 
-dialect = sqlite
+dialect = mysql
 
 
