@@ -312,4 +312,129 @@ LEFT JOIN produto AS p ON iv.id_produto = p.id
 LEFT JOIN promocao AS pr ON iv.id_promocao = pr.id
 ORDER BY v.data_venda DESC;
 
+-- 13
+delimiter $$ 
+CREATE PROCEDURE relatorio_top_fornecedores()
+begin 
+
+
+SELECT f.nome AS fornecedor,
+       SUM(iv.quantidade) AS qtd_vendida,
+       SUM(iv.quantidade * iv.preco_unitario) AS total_vendido
+FROM Fornecedor f
+JOIN Produto p ON f.id = p.id_fornecedor
+JOIN Item_Venda iv ON p.id = iv.id_produto
+GROUP BY f.nome
+ORDER BY total_vendido DESC;
+
+
+end $$
+delimiter ;
+
+
+
+-- 12 
+delimiter $$
+CREATE PROCEDURE clientes_top_produtos()
+begin 
+
+
+SELECT c.nome
+FROM Cliente c
+WHERE NOT EXISTS (
+    SELECT p.id
+    FROM Produto p
+    JOIN Categoria cat ON p.id_categoria = cat.id
+    WHERE cat.nome = 'Livros'
+    AND NOT EXISTS (
+        SELECT 1
+        FROM Venda v
+        JOIN Item_Venda iv ON v.id = iv.id_venda
+        WHERE v.id_cliente = c.id
+        AND iv.id_produto = p.id
+    )
+);
+
+end $$
+delimiter ;
+
+
+
+-- 11
+delimiter $$
+CREATE PROCEDURE comparativo_top_mes()
+begin 
+
+
+SELECT
+    DATE_FORMAT(data_venda, '%Y-%m') AS mes,
+    COUNT(id) AS qtd_vendas,
+    SUM(total) AS faturamento
+FROM (
+    SELECT
+        v.id,
+        v.data_venda,
+        SUM(iv.quantidade * iv.preco_unitario) AS total
+    FROM Venda v
+    JOIN Item_Venda iv ON v.id = iv.id_venda
+    GROUP BY v.id, v.data_venda
+) AS vendas_totais
+GROUP BY DATE_FORMAT(data_venda, '%Y-%m')
+ORDER BY mes DESC;
+
+
+
+end $$
+delimiter ;
+
+-- 6
+delimiter $$ 
+CREATE PROCEDURE vendas_top_produtos()
+begin 
+
+
+SELECT
+    DATE_FORMAT(data_venda, '%Y-%m') AS mes,
+    COUNT(id) AS qtd_vendas,
+    SUM(total) AS faturamento
+FROM (
+    SELECT
+        v.id,
+        v.data_venda,
+        SUM(iv.quantidade * iv.preco_unitario) AS total
+    FROM Venda v
+    JOIN Item_Venda iv ON v.id = iv.id_venda
+    GROUP BY v.id, v.data_venda
+) AS vendas_totais
+GROUP BY DATE_FORMAT(data_venda, '%Y-%m')
+ORDER BY mes DESC;
+
+
+end $$
+delimiter ;
+
+-- 14
+delimiter $$
+CREATE PROCEDURE MediaVendas_top_MediaGeral()
+begin 
+
+
+SELECT
+    f.nome AS funcionario,
+    COUNT(v.id) AS qtd_vendas,
+    AVG(iv.quantidade * iv.preco_unitario) AS media_funcionario,
+    (SELECT AVG(iv2.quantidade * iv2.preco_unitario)
+        FROM Item_Venda iv2) AS media_geral
+FROM Funcionario f
+JOIN Venda v ON f.id = v.id_funcionario
+JOIN Item_Venda iv ON v.id = iv.id_venda
+GROUP BY f.nome
+ORDER BY media_funcionario DESC;
+
+
+
+end $$
+delimiter ;
+
+
 COMMIT;
