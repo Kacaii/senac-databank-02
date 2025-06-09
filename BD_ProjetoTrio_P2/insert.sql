@@ -1,9 +1,9 @@
 use loja_de_roupas;
 
-START TRANSACTION;
+start transaction;
 
 -- Inserindo dados na tabela Fornecedor
-INSERT INTO Fornecedor (Id, Nome, Endereco, Telefone, Email) VALUES
+insert into fornecedor (id, nome, endereco, telefone, email) values
 (
     1,
     'Fornecedor A',
@@ -83,7 +83,7 @@ INSERT INTO Fornecedor (Id, Nome, Endereco, Telefone, Email) VALUES
 );
 
 -- Inserindo dados na tabela Categoria
-INSERT INTO Categoria (Id, Nome) VALUES
+insert into categoria (id, nome) values
 (1, 'Eletrônicos'),
 (2, 'Roupas'),
 (3, 'Calçados'),
@@ -97,9 +97,9 @@ INSERT INTO Categoria (Id, Nome) VALUES
 (11, 'Esportes');
 
 -- Inserindo dados na tabela Produto
-INSERT INTO Produto (
-    Id, Nome, Descricao, Preco, Tamanho, Cor, Marca, Id_fornecedor, Id_categoria
-) VALUES
+insert into produto (
+    id, nome, descricao, preco, tamanho, cor, marca, id_fornecedor, id_categoria
+) values
 (
     1,
     'Smartphone X',
@@ -247,9 +247,9 @@ INSERT INTO Produto (
 (15, 'Café Premium', 'Café em grãos 1kg', 29.90, '1kg', NULL, 'CaféBom', 5, 5);
 
 -- Inserindo dados na tabela Estoque
-INSERT INTO Estoque (
-    Id, Quantidade, Data_entrada, Data_saida, Id_produto
-) VALUES
+insert into estoque (
+    id, quantidade, data_entrada, data_saida, id_produto
+) values
 (1, 50, '2023-01-10', '2023-12-31', 1),
 (2, 100, '2023-01-15', '2023-12-31', 2),
 (3, 30, '2023-02-01', '2023-12-31', 3),
@@ -267,7 +267,7 @@ INSERT INTO Estoque (
 (15, 90, '2023-08-01', '2023-12-31', 15);
 
 -- Inserindo dados na tabela Cliente
-INSERT INTO Cliente (Id, Nome, Endereco, Telefone, Email) VALUES
+insert into cliente (id, nome, endereco, telefone, email) values
 (1, 'João Silva', 'Rua A, 123', '(11) 1234-5678', 'joao@email.com'),
 (2, 'Maria Souza', 'Av. B, 456', '(22) 2345-6789', 'maria@email.com'),
 (3, 'Carlos Oliveira', 'Rua C, 789', '(33) 3456-7890', 'carlos@email.com'),
@@ -281,7 +281,7 @@ INSERT INTO Cliente (Id, Nome, Endereco, Telefone, Email) VALUES
 (11, 'Lucas Martins', 'Rua K, 210', '(12) 1234-5678', 'lucas@email.com');
 
 -- Inserindo dados na tabela Funcionario
-INSERT INTO Funcionario (Id, Nome, Cargo, Telefone) VALUES
+insert into funcionario (id, nome, cargo, telefone) values
 (1, 'Roberto Sales', 'Vendedor', '(11) 9876-5432'),
 (2, 'Amanda Rocha', 'Gerente', '(22) 8765-4321'),
 (3, 'Felipe Mendes', 'Caixa', '(33) 7654-3210'),
@@ -295,7 +295,7 @@ INSERT INTO Funcionario (Id, Nome, Cargo, Telefone) VALUES
 (11, 'Hugo Moreira', 'Estoquista', '(12) 9876-5432');
 
 -- Inserindo dados na tabela Forma_Pagamento
-INSERT INTO Forma_pagamento (Id, Nome) VALUES
+insert into forma_pagamento (id, nome) values
 (1, 'Dinheiro'),
 (2, 'Cartão de Crédito'),
 (3, 'Cartão de Débito'),
@@ -309,9 +309,9 @@ INSERT INTO Forma_pagamento (Id, Nome) VALUES
 (11, 'Parcelado');
 
 -- Inserindo dados na tabela Promocao
-INSERT INTO Promocao (
-    Id, Nome, Descricao, Valor_desconto, Ativo, Data_inicio, Data_fim
-) VALUES
+insert into promocao (
+    id, nome, descricao, valor_desconto, ativo, data_inicio, data_fim
+) values
 (1, 'Black Friday', 'Descontos especiais', 30.0, 1, '2023-11-24', '2023-11-26'),
 (2, 'Natal', 'Promoção de fim de ano', 20.0, 1, '2023-12-15', '2023-12-25'),
 (
@@ -381,9 +381,9 @@ INSERT INTO Promocao (
 );
 
 -- Inserindo dados na tabela Venda
-INSERT INTO Venda (
-    Id, Data_venda, Id_cliente, Id_forma_pagamento, Id_funcionario
-) VALUES
+insert into venda (
+    id, data_venda, id_cliente, id_forma_pagamento, id_funcionario
+) values
 (1, '2023-01-15', 1, 2, 1),
 (2, '2023-01-20', 2, 3, 2),
 (3, '2023-02-05', 3, 1, 3),
@@ -401,9 +401,9 @@ INSERT INTO Venda (
 (15, '2023-08-05', 4, 1, 4);
 
 -- Inserindo dados na tabela Item_Venda
-INSERT INTO Item_venda (
-    Id, Id_venda, Id_produto, Quantidade, Preco_unitario, Id_promocao
-) VALUES
+insert into item_venda (
+    id, id_venda, id_produto, quantidade, preco_unitario, id_promocao
+) values
 (1, 1, 1, 1, 2999.99, NULL),
 (2, 1, 4, 1, 399.90, NULL),
 (3, 2, 2, 2, 49.90, NULL),
@@ -426,7 +426,7 @@ INSERT INTO Item_venda (
 (20, 4, 10, 1, 129.90, NULL);
 
 -- Inserindo dados na tabela Promocao_Produto
-INSERT INTO Promocao_produto (Id, Id_produto, Id_promocao) VALUES
+insert into promocao_produto (id, id_produto, id_promocao) values
 (1, 1, 1),
 (2, 4, 1),
 (3, 8, 9),
@@ -443,4 +443,4 @@ INSERT INTO Promocao_produto (Id, Id_produto, Id_promocao) VALUES
 (14, 14, 7),
 (15, 15, 8);
 
-COMMIT;
+commit;
