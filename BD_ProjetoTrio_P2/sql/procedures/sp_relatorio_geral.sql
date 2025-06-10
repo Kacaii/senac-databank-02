@@ -1,7 +1,10 @@
+use loja_de_roupas;
+
 delimiter $$
 CREATE PROCEDURE sp_relatorio_geral()
 begin 
 
+start transaction;
 
 -- Produtos com estoque baixo e seus fornecedores
 SELECT p.nome, p.marca, e.quantidade, f.nome AS fornecedor, f.telefone
@@ -266,6 +269,7 @@ FROM Produto p
 JOIN Estoque e ON p.id = e.id_produto
 ORDER BY meses_estoque DESC;
 
+commit;
 
 end $$
 delimiter ;

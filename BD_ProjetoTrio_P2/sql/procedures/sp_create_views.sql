@@ -1,4 +1,6 @@
-delimiter $$
+use loja_de_roupas;
+
+delimiter $$ 
 create procedure sp_create_views()
 begin 
 
