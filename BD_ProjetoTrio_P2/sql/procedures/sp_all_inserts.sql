@@ -1,5 +1,9 @@
 use loja_de_roupas;
 
+delimiter $$
+create procedure sp_all_inserts()
+begin
+
 start transaction;
 
 -- Inserindo dados na tabela Fornecedor
@@ -444,3 +448,6 @@ insert into promocao_produto (id, id_produto, id_promocao) values
 (15, 15, 8);
 
 commit;
+
+end $$
+delimiter ;
