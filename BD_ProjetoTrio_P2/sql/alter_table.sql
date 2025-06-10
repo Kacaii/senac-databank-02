@@ -1,29 +1,50 @@
-use loja_de_roupas;
+USE loja_de_roupas;
 
-start transaction;
+START transaction;
 
-alter table cliente
-add column data_nascimento DATE;
+ALTER TABLE
+  cliente
+ADD
+  COLUMN data_nascimento DATE;
 
-alter table venda
-add column observacoes VARCHAR(255);
+ALTER TABLE
+  venda
+ADD
+  COLUMN observacoes VARCHAR(255);
 
-alter table venda
-add column codigo_rastreamento VARCHAR(50);
+ALTER TABLE
+  venda
+ADD
+  COLUMN codigo_rastreamento VARCHAR(50);
 
-alter table produto
-add column material VARCHAR(50);
+ALTER TABLE
+  produto
+ADD
+  COLUMN material VARCHAR(50);
 
-alter table funcionario
-add column cpf TEXT;
+ALTER TABLE
+  funcionario
+ADD
+  COLUMN cpf TEXT;
 
-alter table fornecedor add column cnpj TEXT;
+ALTER TABLE
+  fornecedor
+ADD
+  COLUMN cnpj TEXT;
 
-alter table cliente
-add column limite_credito DECIMAL(10, 2) default 0;
+ALTER TABLE
+  cliente
+ADD
+  COLUMN limite_credito DECIMAL(10, 2) DEFAULT 0;
 
-alter table produto add column peso DECIMAL(10, 3);
+ALTER TABLE
+  produto
+ADD
+  COLUMN peso DECIMAL(10, 3);
 
-alter table produto add column ativo BOOLEAN default 1;
+ALTER TABLE
+  produto
+ADD
+  COLUMN ativo BOOLEAN DEFAULT 1;
 
-commit;
+COMMIT;
