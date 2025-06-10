@@ -160,7 +160,7 @@ select
     p.nome as produto,
     iv.quantidade,
     iv.preco_unitario,
-    ifnull(pr.nome, 'sem promoção') as promocao,
+    coalesce(pr.nome, 'sem promoção') as promocao,
     (iv.quantidade * iv.preco_unitario) as subtotal
 from venda as v
 left join cliente as c on v.id_cliente = c.id
