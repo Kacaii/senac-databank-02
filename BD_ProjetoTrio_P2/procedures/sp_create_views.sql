@@ -1,5 +1,5 @@
 delimiter $$
-create procedure procedure_create_views()
+create procedure sp_create_views()
 begin 
 
 start transaction;

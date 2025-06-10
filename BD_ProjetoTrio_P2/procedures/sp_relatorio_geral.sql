@@ -1,5 +1,5 @@
 delimiter $$
-CREATE PROCEDURE relatorio_geral()
+CREATE PROCEDURE sp_relatorio_geral()
 begin 
 
 
