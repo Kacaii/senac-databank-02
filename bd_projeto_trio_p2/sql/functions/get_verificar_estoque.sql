@@ -5,6 +5,7 @@ START TRANSACTION;
 DELIMITER $$
 CREATE FUNCTION verificar_estoque(p_id_produto INT) RETURNS INT READS SQL DATA
 BEGIN
+
 DECLARE
 v_quantidade INT;
 

@@ -5,6 +5,7 @@ START TRANSACTION;
 DELIMITER $$
 CREATE FUNCTION get_quantidade_media_vendas_produto(p_id_produto INT) RETURNS DECIMAL(10, 2) READS SQL DATA
 BEGIN
+
 DECLARE
 v_media DECIMAL(10, 2);
 

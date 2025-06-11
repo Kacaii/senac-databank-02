@@ -5,6 +5,7 @@ START TRANSACTION;
 DELIMITER $$
 CREATE FUNCTION verificar_validade_promocao(p_id_promocao INT) RETURNS BOOLEAN READS SQL DATA
 BEGIN
+
 DECLARE
 v_valida BOOLEAN;
 
