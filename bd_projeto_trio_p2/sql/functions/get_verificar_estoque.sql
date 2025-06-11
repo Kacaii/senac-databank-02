@@ -15,7 +15,7 @@ FROM
 WHERE
   id_produto = p_id_produto;
 
-RETURN IFNULL(v_quantidade, 0);
+RETURN COALESCE(v_quantidade, 0);
 
 END $$
 DELIMITER ;

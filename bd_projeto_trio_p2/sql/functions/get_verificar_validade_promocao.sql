@@ -16,7 +16,7 @@ FROM
 WHERE
   id = p_id_promocao;
 
-RETURN IFNULL(v_valida, FALSE);
+RETURN COALESCE(v_valida, FALSE);
 
 END $$
 DELIMITER ;
