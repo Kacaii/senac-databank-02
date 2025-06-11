@@ -21,3 +21,5 @@ END $$
 DELIMITER ;
 
 COMMIT;
+
+-- drop function calcular_total_venda;

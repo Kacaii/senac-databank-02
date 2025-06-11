@@ -1,3 +1,5 @@
+use loja_de_roupas;
+
 START TRANSACTION;
 
 DELIMITER $$
