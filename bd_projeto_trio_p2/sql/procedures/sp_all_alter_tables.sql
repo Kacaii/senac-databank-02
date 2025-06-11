@@ -1,7 +1,7 @@
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_create_views()
+CREATE PROCEDURE sp_all_alter_tables()
 BEGIN
 START TRANSACTION;
 
