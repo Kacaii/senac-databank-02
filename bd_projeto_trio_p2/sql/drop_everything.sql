@@ -34,33 +34,33 @@ COMMIT;
 
 START TRANSACTION;
 
-DROP PROCEDURE sp_all_alter_tables;
-DROP PROCEDURE sp_all_inserts;
-DROP PROCEDURE sp_all_updates;
-DROP PROCEDURE sp_create_functions;
-DROP PROCEDURE sp_create_views;
-DROP PROCEDURE sp_relatorio_geral;
+DROP PROCEDURE IF EXISTS sp_all_alter_tables;
+DROP PROCEDURE IF EXISTS sp_all_inserts;
+DROP PROCEDURE IF EXISTS sp_all_updates;
+DROP PROCEDURE IF EXISTS sp_create_functions;
+DROP PROCEDURE IF EXISTS sp_create_views;
+DROP PROCEDURE IF EXISTS sp_relatorio_geral;
 
 COMMIT;
 
 START TRANSACTION;
 
-DROP TRIGGER tg_atualizar_estoque_apos_venda;
-DROP TRIGGER tg_categoria_automatica_produto;
-DROP TRIGGER tg_definir_data_entrada_estoque;
-DROP TRIGGER tg_desativar_promocao_expirada;
-DROP TRIGGER tg_impedir_preco_zero;
-DROP TRIGGER tg_validar_nome_produto;
+DROP TRIGGER IF EXISTS tg_atualizar_estoque_apos_venda;
+DROP TRIGGER IF EXISTS tg_categoria_automatica_produto;
+DROP TRIGGER IF EXISTS tg_definir_data_entrada_estoque;
+DROP TRIGGER IF EXISTS tg_desativar_promocao_expirada;
+DROP TRIGGER IF EXISTS tg_impedir_preco_zero;
+DROP TRIGGER IF EXISTS tg_validar_nome_produto;
 
 COMMIT;
 
 START TRANSACTION;
 
-DROP FUNCTION adicionar_estoque;
-DROP FUNCTION atualizar_preco_produto;
-DROP FUNCTION get_calcular_total_venda;
-DROP FUNCTION get_quantidade_media_vendas_produto;
-DROP FUNCTION get_verificar_estoque;
-DROP FUNCTION get_verificar_validade_promocao;
+DROP FUNCTION IF EXISTS adicionar_estoque;
+DROP FUNCTION IF EXISTS atualizar_preco_produto;
+DROP FUNCTION IF EXISTS get_calcular_total_venda;
+DROP FUNCTION IF EXISTS get_quantidade_media_vendas_produto;
+DROP FUNCTION IF EXISTS get_verificar_estoque;
+DROP FUNCTION IF EXISTS get_verificar_validade_promocao;
 
 COMMIT;
