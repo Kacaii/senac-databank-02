@@ -1,7 +1,7 @@
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_all_alter_tables()
+CREATE PROCEDURE IF NOT EXISTS sp_all_alter_tables()
 BEGIN
 START TRANSACTION;
 

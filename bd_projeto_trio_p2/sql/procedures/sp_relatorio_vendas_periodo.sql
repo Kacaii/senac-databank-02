@@ -3,7 +3,7 @@ USE loja_de_roupas;
 START TRANSACTION;
 
 DELIMITER $$
-CREATE PROCEDURE sp_relatorio_vendas_periodo(IN p_data_inicio DATE, IN p_data_fim DATE)
+CREATE PROCEDURE IF NOT EXISTS sp_relatorio_vendas_periodo(IN p_data_inicio DATE, IN p_data_fim DATE)
 BEGIN
 
 SELECT

@@ -1,7 +1,7 @@
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_all_alter_tables()
+CREATE PROCEDURE IF NOT EXISTS sp_all_alter_tables()
 BEGIN
 START TRANSACTION;
 
@@ -57,7 +57,7 @@ delimiter ;
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_all_inserts()
+CREATE PROCEDURE IF NOT EXISTS sp_all_inserts()
 BEGIN
 START transaction;
 
@@ -696,7 +696,7 @@ delimiter ;
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_all_updates()
+CREATE PROCEDURE IF NOT EXISTS sp_all_updates()
 BEGIN
 START TRANSACTION;
 
@@ -890,7 +890,7 @@ delimiter ;
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_create_views()
+CREATE PROCEDURE IF NOT EXISTS sp_create_views()
 BEGIN
 START transaction;
 
@@ -1100,7 +1100,7 @@ delimiter ;
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_relatorio_geral()
+CREATE PROCEDURE IF NOT EXISTS sp_relatorio_geral()
 BEGIN
 START transaction;
 
@@ -1521,7 +1521,7 @@ USE loja_de_roupas;
 START TRANSACTION;
 
 DELIMITER $$
-CREATE PROCEDURE sp_relatorio_vendas_periodo(IN p_data_inicio DATE, IN p_data_fim DATE)
+CREATE PROCEDURE IF NOT EXISTS sp_relatorio_vendas_periodo(IN p_data_inicio DATE, IN p_data_fim DATE)
 BEGIN
 
 SELECT

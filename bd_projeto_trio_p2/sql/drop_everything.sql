@@ -37,7 +37,7 @@ START TRANSACTION;
 DROP PROCEDURE IF EXISTS sp_all_alter_tables;
 DROP PROCEDURE IF EXISTS sp_all_inserts;
 DROP PROCEDURE IF EXISTS sp_all_updates;
-DROP PROCEDURE IF EXISTS sp_create_functions;
+DROP PROCEDURE IF EXISTS sp_relatorio_vendas_periodo;
 DROP PROCEDURE IF EXISTS sp_create_views;
 DROP PROCEDURE IF EXISTS sp_relatorio_geral;
 

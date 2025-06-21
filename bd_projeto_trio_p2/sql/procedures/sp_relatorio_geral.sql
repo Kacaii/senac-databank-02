@@ -1,7 +1,7 @@
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_relatorio_geral()
+CREATE PROCEDURE IF NOT EXISTS sp_relatorio_geral()
 BEGIN
 START transaction;
 

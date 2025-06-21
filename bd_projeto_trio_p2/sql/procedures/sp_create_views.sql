@@ -1,7 +1,7 @@
 USE loja_de_roupas;
 
 delimiter $$
-CREATE PROCEDURE sp_create_views()
+CREATE PROCEDURE IF NOT EXISTS sp_create_views()
 BEGIN
 START transaction;
 
