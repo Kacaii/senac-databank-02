@@ -3,7 +3,7 @@ use loja_de_roupas;
 START TRANSACTION;
 
 DELIMITER $$
-CREATE FUNCTION verificar_estoque(p_id_produto INT) RETURNS INT READS SQL DATA
+CREATE FUNCTION get_verificar_estoque(p_id_produto INT) RETURNS INT READS SQL DATA
 BEGIN
 
 DECLARE

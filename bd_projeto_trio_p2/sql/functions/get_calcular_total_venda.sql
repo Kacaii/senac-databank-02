@@ -3,7 +3,7 @@ USE loja_de_roupas;
 START TRANSACTION;
 
 DELIMITER $$
-CREATE FUNCTION calcular_total_venda(p_id_venda INT) RETURNS DECIMAL(10, 2) DETERMINISTIC
+CREATE FUNCTION get_calcular_total_venda(p_id_venda INT) RETURNS DECIMAL(10, 2) DETERMINISTIC
 BEGIN
 
 DECLARE

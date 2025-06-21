@@ -70,7 +70,7 @@ USE loja_de_roupas;
 START TRANSACTION;
 
 DELIMITER $$
-CREATE FUNCTION calcular_total_venda(p_id_venda INT) RETURNS DECIMAL(10, 2) DETERMINISTIC
+CREATE FUNCTION get_calcular_total_venda(p_id_venda INT) RETURNS DECIMAL(10, 2) DETERMINISTIC
 BEGIN
 
 DECLARE
@@ -122,7 +122,7 @@ use loja_de_roupas;
 START TRANSACTION;
 
 DELIMITER $$
-CREATE FUNCTION verificar_estoque(p_id_produto INT) RETURNS INT READS SQL DATA
+CREATE FUNCTION get_verificar_estoque(p_id_produto INT) RETURNS INT READS SQL DATA
 BEGIN
 
 DECLARE
@@ -148,7 +148,7 @@ USE loja_de_roupas;
 START TRANSACTION;
 
 DELIMITER $$
-CREATE FUNCTION verificar_validade_promocao(p_id_promocao INT) RETURNS BOOLEAN READS SQL DATA
+CREATE FUNCTION get_verificar_validade_promocao(p_id_promocao INT) RETURNS BOOLEAN READS SQL DATA
 BEGIN
 
 DECLARE

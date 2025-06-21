@@ -3,7 +3,7 @@ USE loja_de_roupas;
 START TRANSACTION;
 
 DELIMITER $$
-CREATE FUNCTION verificar_validade_promocao(p_id_promocao INT) RETURNS BOOLEAN READS SQL DATA
+CREATE FUNCTION get_verificar_validade_promocao(p_id_promocao INT) RETURNS BOOLEAN READS SQL DATA
 BEGIN
 
 DECLARE
